@@ -4,21 +4,7 @@ import { useState } from "react";
 
 function Todos() {
 
-    const [todoList, setTodoList] = useState([
-        {
-            title: "titre1",
-            description: "lorem ipsum"
-        },
-        {
-            title: "titre2",
-            description: "lorem ipsum"
-        },
-        {
-            title: "titre3",
-            description: "lorem ipsum"
-        },
-
-    ]);
+   
 
 
     return (
