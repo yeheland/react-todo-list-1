@@ -2,38 +2,57 @@ import React from "react";
 import { useState } from "react";
 
 
-function Todos() {
+function Todos(props) {
 
-    const [todoList, setTodoList] = useState([
+    const deleteTodo = (list) => {
+        let title = list.title;
+    
+        const newTodo = props.todoList.filter(item => item.title !== title);
+        
+        props.setTodoList(newTodo)
+
+        // en essayant de l'enregistrer dans un state j'ai un decalage pourquoi ?
+        // + erreur console quand j'écris dans le input title et description
+
+        // setTodoDel(list.title)
+        // console.log(todoDel)
+    }
+
+    // const [todoDel, setTodoDel] = useState('');
+
+
+return (
+    <div className="m-auto col-8 d-flex">
         {
-            title: "titre1",
-            description: "lorem ipsum"
-        },
-        {
-            title: "titre2",
-            description: "lorem ipsum"
-        },
-        {
-            title: "titre3",
-            description: "lorem ipsum"
-        },
-
-    ]);
-
-
-    return (
-        <div className="m-auto col-8 d-flex">
-            {
-                todoList.map((list, index) => (
-
-                    <div className="m-5">
-                        <h2>{list.title}</h2>
-                        <p>{list.description}</p>
-                        <button className="btn btn-danger">Delete</button>
-                    </div>
-                ))
-            }
-        </div>
-    )
+            props.todoList.map((list, index) => (
+                <div className="m-5" key={index}>
+                    <h2>{list.title}</h2>
+                    <p>{list.description}</p>
+                    <button
+                        className="btn btn-danger"
+                        onClick={() => deleteTodo(list)}
+                    >Delete</button>
+                </div>
+            ))
+        }
+    </div>
+)
 }
 export default Todos;
+
+    // const productWithq = prevPanier.map((item, index) => {
+    //     if(productIndex === index) {
+    //       return {
+    //         ...item,
+    //         quantity: item.quantity + 1
+    //       }
+    //     }
+    //     return item
+    //   })
+     
+    //   return productWithq
+    // }) 
+
+
+// console.log(filteredState)
+// props.setTodoList(filteredState)
