@@ -40,19 +40,4 @@ return (
 }
 export default Todos;
 
-    // const productWithq = prevPanier.map((item, index) => {
-    //     if(productIndex === index) {
-    //       return {
-    //         ...item,
-    //         quantity: item.quantity + 1
-    //       }
-    //     }
-    //     return item
-    //   })
-     
-    //   return productWithq
-    // }) 
 
-
-// console.log(filteredState)
-// props.setTodoList(filteredState)
